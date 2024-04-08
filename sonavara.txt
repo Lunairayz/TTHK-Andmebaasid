@@ -1,0 +1,9 @@
+andmebaas - база данных
+andmebaaside haldussusteem - 
+tabel - таблица
+rida - ряд
+veerg - грань
+kirjed - записи
+valjad - поля
+andmed - данные
+vaartused - значения
