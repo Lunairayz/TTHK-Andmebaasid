@@ -21,5 +21,6 @@ INSERT INTO opilane(
 eesnimi, perenimi, isikukood, aadress, sisseastumiskp)
 VALUES
 ('Ivan', 'Edu', '6784', 'Tallinn', '2023-08-16'),
+('Artem', 'Mihhalkenkov', '375718957', 'Boloto', '2023-08-04'),
 ('Edu', 'Sulle', '234', 'Tartu', '2023-08-16');
 SELECT * FROM opilane;
