@@ -16,3 +16,10 @@ sisseastumiskp date
 );
 
 SELECT * FROM opilane;
+--andmete lisamine
+INSERT INTO opilane(
+eesnimi, perenimi, isikukood, aadress, sisseastumiskp)
+VALUES
+('Ivan', 'Edu', '6784', 'Tallinn', '2023-08-16'),
+('Edu', 'Sulle', '234', 'Tartu', '2023-08-16');
+SELECT * FROM opilane;
