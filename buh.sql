@@ -1,5 +1,5 @@
-SQL SERVER MANAGEMENT STUDIO
-https://meet.google.com/hbg-ctqd-dju
+-- commands
+-- https://meet.google.com/hbg-ctqd-dju
 
 --loomine
 CREATE DATABASE ArchieLOGITpv22;
@@ -12,7 +12,8 @@ eesnimi varchar(20),
 perenimi varchar(25) not null,
 isikukood char(11) unique,
 aadress TEXT,
-sisseastumiskp date
+sisseastumiskp date,
+ryhmid char(12)
 );
 
 SELECT * FROM opilane;
@@ -51,3 +52,16 @@ VALUES (1076, 'FIN', 'Soome', 1, 95.5, 'Helsinki');
 UPDATE Language SET Capital='Tallinn'
 WHERE ID=100
 SELECT * FROM Language;
+
+CREATE TABLE ryhm(
+ryhmid int Primary Key identity(1,1),
+ryhmnimetus varchar(25) not null,
+emakond varchar(11)
+);
+
+CREATE TABLE ryhmajuhataja(
+juhatajaid int Primary Key identity(1,1),
+eesnimi varchar(25) not null,
+perenimi varchar(11),
+telefon char(12),
+);
