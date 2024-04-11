@@ -53,15 +53,80 @@ UPDATE Language SET Capital='Tallinn'
 WHERE ID=100
 SELECT * FROM Language;
 
+--tabeli kustutamine
+DROP TABLE language;
+--tabeli rühm loomine
 CREATE TABLE ryhm(
-ryhmid int Primary Key identity(1,1),
-ryhmnimetus varchar(25) not null,
-emakond varchar(11)
+ryhmId int Primary key identity(1,1),
+ryhmNimetus varchar(20) UNIQUE,
+osakond char(3));
+
+Select * from ryhm;
+SELECT * FROM opilane;
+
+INSERT INTO ryhm (ryhmNimetus,osakond,juhatajaID)
+VALUES ('TARpv23','IT',2);
+
+
+--FOREIGN KEY --> PK teises tabelis
+ALTER TABLE opilane ADD ryhmID int;
+
+--tabeli opilane uuendamine
+Update opilane SET ryhmId=2;
+
+--Fk lisamine opilane tabelisse
+ALTER TABLE opilane
+ADD FOREIGN KEY (ryhmID) REFERENCES ryhm(ryhmID);
+
+INSERT INTO opilane(
+eesnimi, perenimi, isikukood, aadress, sisseastumiskp, ryhmId)
+VALUES
+('Test','Test','5855301','Tallinn','2023-08-26',1);
+SELECT * FROM opilane;
+
+--Drop table nazvanie, Alter table.... drop column....
+--telefon varchar(15)
+--tabeli ryhmajuhataja loomine
+CREATE TABLE ryhmajuhataja(
+juhatajaId int Primary key identity (1,1),
+eesnimi varchar(20),
+perenimi varchar(20),
+telefon varchar(20),
+);
+SELECT * FROM ryhmajuhataja;
+
+INSERT INTO ryhmajuhataja(eesnimi, perenimi, telefon)
+VALUES ('arch','sir','56171819');
+SELECT * FROM ryhmajuhataja;
+select * from ryhm
+
+--veergu lisamine tabelisse
+ALTER TABLE ryhm add juhatajaID int;
+--tabeli ryhm uuendamine
+Update ryhm SET juhatajaID=1;
+
+ALTER TABLE ryhm
+ADD FOREIGN KEY (juhatajaID) REFERENCES ryhmajuhataja(juhatajaID);
+
+INSERT INTO ryhm (ryhmNimetus,osakond,juhatajaID)
+VALUES ('LOGITpv22','IT',1);
+
+--tabeli hinnad loomine
+CREATE TABLE hinnad(
+hinnangID int Primary key identity (1,1),
+kuupaeb date,
+id int,
+juhatajaID int,
+hinnang text
 );
 
-CREATE TABLE ryhmajuhataja(
-juhatajaid int Primary Key identity(1,1),
-eesnimi varchar(25) not null,
-perenimi varchar(11),
-telefon char(12),
-);
+SELECT * FROM hinnad
+
+INSERT INTO hinnad(kuupaev,id,juhatajaID,hinnang)
+VALUES('2024-02-21',1,1,'4');
+
+ALTER TABLE hinnad
+ADD FOREIGN KEY (id) REFERENCES opilane(id);
+
+ALTER TABLE hinnad
+ADD FOREIGN KEY (juhatajaid) REFERENCES ryhmajuhataja(juhatajaid);
