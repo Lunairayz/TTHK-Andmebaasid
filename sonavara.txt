@@ -1,5 +1,5 @@
 andmebaas - база данных
-andmebaaside haldussusteem - 
+andmebaaside haldussusteem - система управления базами данных
 tabel - таблица
 rida - ряд
 veerg - грань
