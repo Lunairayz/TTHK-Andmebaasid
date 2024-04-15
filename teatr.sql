@@ -32,9 +32,11 @@ CREATE TABLE film(
 	filmTypeID int,
 	reklaam image);
 SELECT * FROM  film;
---FK film to filmtype
-ALTER TABLE film ADD FOREIGN KEY (filmTypeID)
-REFERENCES filmType(filmTypeID);
+--FKs IDS to film
+ALTER TABLE film ADD FOREIGN KEY (zanrID) REFERENCES zanr(zanrID);
+ALTER TABLE film ADD FOREIGN KEY (rezisorID) REFERENCES rezisor(rezisorID);
+ALTER TABLE film ADD FOREIGN KEY (filmTypeID) REFERENCES filmType(filmTypeID);
+
 
 CREATE TABLE kinokava(
 	kinokavaID int Primary key identity (1,1),
@@ -42,9 +44,13 @@ CREATE TABLE kinokava(
 	filmNimetus int,
 	piletihind int);
 SELECT * FROM  kinokava;
+--FK Nimetus to kinokava
+ALTER TABLE kinokava ADD FOREIGN KEY (filmNimetus) REFERENCES film(filmID);
 
 CREATE TABLE piletiMyyk(
 	piletimyykID int Primary key identity (1,1),
 	kogus int,
 	kinokavaID int);
 SELECT * FROM  piletiMyyk;
+--FK kinokavaID to piletiMyyk
+ALTER TABLE piletiMyyk ADD FOREIGN KEY (kinokavaID) REFERENCES kinokava(kinokavaID);
