@@ -98,7 +98,6 @@ SELECT * FROM ryhmajuhataja;
 INSERT INTO ryhmajuhataja(eesnimi, perenimi, telefon)
 VALUES ('arch','sir','56171819');
 SELECT * FROM ryhmajuhataja;
-select * from ryhm
 
 --veergu lisamine tabelisse
 ALTER TABLE ryhm add juhatajaID int;
