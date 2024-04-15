@@ -66,3 +66,10 @@ SELECT * FROM  piletiMyyk;
 ALTER TABLE piletiMyyk ADD FOREIGN KEY (kinokavaID) REFERENCES kinokava(kinokavaID);
 INSERT INTO piletiMyyk (kogus, kinokavaId)
 VALUES (2, 3)
+
+SELECT * FROM FILM
+SELECT * FROM filmType
+SELECT * FROM kinokava
+SELECT * FROM piletiMyyk
+SELECT * FROM rezisor
+SELECT * FROM zanr
