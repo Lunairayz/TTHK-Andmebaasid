@@ -7,14 +7,13 @@ CREATE DATABASE ArchieLOGITpv22;
 USE ArchieLOGITpv22;
 --tabeli loomine
 CREATE TABLE opilane(
-id int Primary Key identity(1,1),
-eesnimi varchar(20),
-perenimi varchar(25) not null,
-isikukood char(11) unique,
-aadress TEXT,
-sisseastumiskp date,
-ryhmid char(12)
-);
+	id int Primary Key identity(1,1),
+	eesnimi varchar(20),
+	perenimi varchar(25) not null,
+	isikukood char(11) unique,
+	aadress TEXT,
+	sisseastumiskp date,
+	ryhmid char(12));
 
 SELECT * FROM opilane;
 --andmete lisamine
@@ -26,14 +25,12 @@ VALUES
 ('Edu', 'Sulle', '234', 'Tartu', '2023-08-16');
 SELECT * FROM opilane;
 
-CREATE TABLE Language
-(
-ID int NOT NULL PRIMARY KEY,
-Code char(3) NOT NULL,
-Language varchar(50) NOT NULL,
-IsOfficial bit,
-Percentage decimal(5,2)
-);
+CREATE TABLE Language(
+	ID int NOT NULL PRIMARY KEY,
+	Code char(3) NOT NULL,
+	Language varchar(50) NOT NULL,
+	IsOfficial bit,
+	Percentage decimal(5,2));
 
 --tabeli andmete lisamine
 SELECT * FROM Language;
@@ -57,9 +54,9 @@ SELECT * FROM Language;
 DROP TABLE language;
 --tabeli rühm loomine
 CREATE TABLE ryhm(
-ryhmId int Primary key identity(1,1),
-ryhmNimetus varchar(20) UNIQUE,
-osakond char(3));
+	ryhmId int Primary key identity(1,1),
+	ryhmNimetus varchar(20) UNIQUE,
+	osakond char(3));
 
 Select * from ryhm;
 SELECT * FROM opilane;
@@ -88,11 +85,10 @@ SELECT * FROM opilane;
 --telefon varchar(15)
 --tabeli ryhmajuhataja loomine
 CREATE TABLE ryhmajuhataja(
-juhatajaId int Primary key identity (1,1),
-eesnimi varchar(20),
-perenimi varchar(20),
-telefon varchar(20),
-);
+	juhatajaId int Primary key identity (1,1),
+	eesnimi varchar(20),
+	perenimi varchar(20),
+	telefon varchar(20));
 SELECT * FROM ryhmajuhataja;
 
 INSERT INTO ryhmajuhataja(eesnimi, perenimi, telefon)
@@ -112,12 +108,11 @@ VALUES ('LOGITpv22','IT',1);
 
 --tabeli hinnad loomine
 CREATE TABLE hinnad(
-hinnangID int Primary key identity (1,1),
-kuupaeb date,
-id int,
-juhatajaID int,
-hinnang text
-);
+	hinnangID int Primary key identity (1,1),
+	kuupaeb date,
+	id int,
+	juhatajaID int,
+	hinnang text);
 
 SELECT * FROM hinnad
 
