@@ -55,3 +55,37 @@ BEGIN
 END;
 
 exec kustutaFilm 4;
+
+
+--proceduur mis loeb filmide arv kokku
+CREATE PROCEDURE filmideArv
+AS
+SELECT COUNT(*) AS 'filmide Arv' FROM film;
+
+EXEC filmideArv;
+
+CREATE PROCEDURE lisaFilm
+@uusfilm varchar(50),
+@kestvus int,
+@rezisoor varchar(50),
+@aasta int
+AS
+BEGIN
+insert into film (filmNimetus, kestvus, rezisoor, v_aasta)
+values (@uusfilm, @kestvus, @rezisoor, @aasta);
+SELECT * FROM film;
+END;
+EXEC lisaFilm 'test', 222, 'testtt', 2000;
+
+--procedure mis ueendab rezisoori andmed filinimi jargi
+CREATE PROCEDURE uuendaRezisor
+@uusrezisoor varchar(50),
+@filmNimetus varchar(50)
+AS
+BEGIN
+	SELECT * FROM FILM where filmNimetus=@filmNimetus;;
+	UPDATE film SET rezisoor=@uusrezisoor
+	WHERE filmNimetus=@filmNimetus;
+	SELECT * from FILM where filmNimetus=@filmNimetus;;
+END;
+EXEC uuendaRezisor 'ehhehehe', 'Abramo Foddy';
