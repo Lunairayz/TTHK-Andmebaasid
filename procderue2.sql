@@ -1,1 +1,2 @@
-buh
+CREATE DATABASE sirjajevprocedure;
+USE sirjajevprocedure;
