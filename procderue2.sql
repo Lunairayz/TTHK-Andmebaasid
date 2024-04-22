@@ -26,3 +26,20 @@ insert into film (filmNimetus, kestvus, rezisoor, v_aasta) values ('Rat', 253, '
 insert into film (filmNimetus, kestvus, rezisoor, v_aasta) values ('It''s Me, It''s Me', 285, 'Wendye Saulter', 2012);
 insert into film (filmNimetus, kestvus, rezisoor, v_aasta) values ('Lola', 210, 'Randolf Ethelstone', 1995);
 insert into film (filmNimetus, kestvus, rezisoor, v_aasta) values ('112 Weddings', 277, 'Elke Pritty', 1984);
+
+
+--procedure loomine
+select * from film;
+--filminimetuse otsing esimese tahe jargi
+CREATE Procedure otsing1taht
+
+@taht char(1)
+AS
+begin
+	SELECT * FROM FILM
+	WHERE filmNimetus LIKE CONCAT(@taht,'%');
+end;
+
+--kaivatamine
+EXEC otsing1taht 'F';
+--procedure finis
