@@ -42,4 +42,16 @@ end;
 
 --kaivatamine
 EXEC otsing1taht 'F';
---procedure finis
+
+
+--procedure mis kustutab sisestatud id jargi
+CREATE PROCEDURE kustutaFilm
+@id int
+AS
+BEGIN
+	SELECT * from film;
+	DELETE FROM film WHERE filmID=@id;
+	SELECT * FROM FILM;
+END;
+
+exec kustutaFilm 4;
