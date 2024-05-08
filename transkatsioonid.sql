@@ -214,12 +214,12 @@ values (10, 'Russell', 'Male', 8800, NULL)
 
 select * from Employees
 
---- printib iga inimeste Name ja DepartmentID tabelist
+-- printib iga inimeste Name ja DepartmentID tabelist
 select distinct Name, DepartmentId from Employees
 
----?
+-- summeerib iga inimeste palka
 select sum(cast(Salary as int)) from Employees
----?
+-- ?
 select min(cast(Salary as int)) from Employees
 
 
