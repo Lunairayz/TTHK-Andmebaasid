@@ -130,9 +130,9 @@ select * from Person where Email not like '%@%'
 -- ainult üks täht
 select * from Person where Email like '_@_.com'
 
---?
+-- printib nimed kelle esimene täht pole W, A või S
 select * from Person where Name like '[^WAS]%'
---- ?
+-- printib kelle linn on Gotham või New York, ja vanus on 40+
 select * from Person where (City = 'Gotham' or City = 'New York')
 and Age >= 40
 
