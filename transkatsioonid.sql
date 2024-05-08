@@ -76,7 +76,7 @@ values (8, 'Test', 'Test')
 alter table Person
 add Age nvarchar(10)
 
---uuendame andmeid
+--uuendame vanus (age) andmed
 update Person
 set Age = 13
 where Id = 1
@@ -99,6 +99,11 @@ select * from Person
 --- lisame veeru juurde
 alter table Person
 add City nvarchar(25)
+
+--lisame linn (City) andmed
+update Person
+set City = 'Gotham'
+where Id = 7
 
 -- tahame tead kõiki, kes elavad Gothami linnas 
 select * from Person where City = 'Gotham'
