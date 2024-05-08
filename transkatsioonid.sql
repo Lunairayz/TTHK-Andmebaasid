@@ -145,7 +145,7 @@ select top 3 Age, Name from Person
 
 --- näitab esimesed 50% tabelis
 select top 50 percent * from Person
---?
+-- muudab vanus int'eks??
 select * from Person order by cast(Age as int)
 select * from Person order by Age
 
