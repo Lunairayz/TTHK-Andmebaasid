@@ -5,7 +5,8 @@
 --Küsimärki asemel pane vastav kommentaar ja tee git add . ja git commit -a -m " kommentaar"
 
 -- db loomine
-create database LOGITpv22
+create database transaktlogit
+use transaktlogit
 
 
 
@@ -77,10 +78,10 @@ add Age nvarchar(10)
 
 --uuendame andmeid
 update Person
-set Age = 149
-where Id = 8
+set Age = 13
+where Id = 1
 
---?
+-- võib lisada ainult inimeste kelle vanus (age) on vahem kui 150
 alter table Person
 add constraint CK_Person_Age check (Age > 0 and Age < 150)
 
