@@ -9,20 +9,17 @@ create database LOGITpv22
 
 
 
---?
-create table Gender
-(
+-- taabel gender loomine
+create table Gender(
 Id int NOT NULL primary key,
-Gender nvarchar(10) not null
-)
+Gender nvarchar(10) not null)
 
-create table Person
-(
+-- taabel person loomine
+create table Person(
 Id int not null primary key,
 Name nvarchar(25),
 Email nvarchar(30),
-GenderId int
-)
+GenderId int)
 
 --- andmete sisestamine tabelisse
 insert into Gender (Id, Gender)
@@ -108,7 +105,7 @@ select * from Person where City <> 'Gotham'
 select * from Person where City != 'Gotham'
 
 -- näitab teatud vanusega inimesi
-select *from Person where Age = 100 or 
+select * from Person where Age = 100 or 
 Age = 50 or Age = 20
 select * from Person where Age in (100, 50, 20)
 
@@ -162,22 +159,18 @@ select City, sum(cast(Age as int)) as TotalAge from Person group by City
 --- tund 3
 
 --- loome uued tabelid
-create table Department
-(
+create table Department(
 Id int primary key,
 DepartmentName nvarchar(50),
 Location nvarchar(50),
-DepartmentHead nvarchar(50)
-)
+DepartmentHead nvarchar(50))
 
-create table Employees
-(
+create table Employees(
 Id int primary key,
 Name nvarchar(50),
 Gender nvarchar(10),
 Salary nvarchar(50),
-DepartmentId int
-)
+DepartmentId int)
 
 --?
 insert into Department (Id, DepartmentName, Location, DepartmentHead)
