@@ -85,6 +85,7 @@ where Id = 1
 alter table Person
 add constraint CK_Person_Age check (Age > 0 and Age < 150)
 
+--viga, Age on 160, ei võib lisada
 insert into Person (Id, Name, Email, GenderId, Age)
 values (9, 'Test', 'Test', 2, 160)
 
