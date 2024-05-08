@@ -232,7 +232,7 @@ add DepartmentId
 int null
 
 
---?
+-- uus "MiddleName" ja "LastName" andmed
 alter table Employees
 add MiddleName nvarchar(30)
 
